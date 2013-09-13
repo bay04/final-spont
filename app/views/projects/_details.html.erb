@@ -1,0 +1,12 @@
+<p>
+	<%= @project.budget %>
+	<%= @project.category_of_work  %>
+
+<% if @project.approval %>
+	<p>Project is approved!</p>
+<% else %>
+	<p>Project hasn't been approved yet</p> 
+
+<% end %>
+
+</p>

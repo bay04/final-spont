@@ -1,23 +1,15 @@
-<h2><%= @project.name %></h2>
-
-<%= @project.description %>
-
-<%= @project.budget %>
-
-<%= @project.category_of_work  %>
 
 
-
-<% if @project.approval %>
-	<p>Project is approved!</p>
-<% else %>
-	<p>Project hasn't been approved yet</p> 
-<% end %>
+<h3><%= @project.name %></h3>
+<p><%= @project.description %></p>
+<p><%= @project.budget %></p>
+<p><%= @project.approval  %></p>
 
 
+  <%= render 'comments/show' %>
 
 
-<h2>Created By: User <%= @project.user_id %></h2>
-
-<h2>Logged in  User <%= current_user.id %></h2>
+<h5>Created By: User <%= @project.user_id %>
+|| || || || 
+Logged in  User is: <%= current_user.id %></h5>
 
