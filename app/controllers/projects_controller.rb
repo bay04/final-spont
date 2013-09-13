@@ -1,14 +1,14 @@
 class ProjectsController < ApplicationController
 
 
-#Setting the project by finding it only for these actions
+# Setting the project by finding it only for these actions
 	before_action :set_project, only: [:show, :edit, :update, :destroy]
-#Authorizing so no access
+# Authorizing so no access
 	before_filter :authorize
-#Making sure creator only can edit
-	before_action :editable?, only: [ :edit, :destroy]
-
-
+# Making sure creator only can edit
+	before_action :editable?, only: [:edit, :destroy]
+# Make sure a user can view his own projects only
+	before_action :can_view?, only: [:show]
 
 
 def new
@@ -61,10 +61,21 @@ private
 			render 'edit'
 
 		else
-		flash[:notice] = 'Cant be here!'
-			 render 'public/404.html'
+		flash[:notice] = "Can't edit this!"
+			 render 'public/500'
 		end
+	end
 
+
+
+	def can_view?
+		if @project.user_id == current_user.id
+			
+			
+		else
+			render 'public/404'
+			flash[:notice] = "Can't view this"
+		end
 	end
 
 

@@ -3,10 +3,16 @@
 <h3><%= @project.name %></h3>
 <p><%= @project.description %></p>
 <p><%= @project.budget %></p>
-<p><%= @project.approval  %></p>
+
+<% if @project.approval %>
+	<p>Project has been approved!</p>
+<% else %>
+	<p>Project is not yet approved!</p>
+<% end %>
 
 
-  <%= render 'comments/show' %>
+
+	<%= render 'comments/meeting_room' %>
 
 
 <h5>Created By: User <%= @project.user_id %>
