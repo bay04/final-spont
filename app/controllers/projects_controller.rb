@@ -10,6 +10,10 @@ class ProjectsController < ApplicationController
 # Make sure a user can view his own projects only
 	before_action :can_view?, only: [:show]
 
+def index
+	@p = Project.where(user_id: current_user)
+end
+
 
 def new
 	@project = Project.new
@@ -71,7 +75,7 @@ private
 	def can_view?
 		if @project.user_id == current_user.id
 			
-			
+
 		else
 			render 'public/404'
 			flash[:notice] = "Can't view this"
