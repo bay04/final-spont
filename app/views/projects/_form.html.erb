@@ -1,0 +1,16 @@
+<%=  simple_form_for @project do |f| %>
+	
+
+
+	<%= f.input :name %>
+	<%= f.input :description %>
+	<%= f.input :budget %>
+	<%= f.input :category_of_work %>
+
+	<% f.input :user_id %>
+
+	<%= f.button :submit %>
+
+
+	<% end %>
+

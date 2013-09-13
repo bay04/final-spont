@@ -1,0 +1,29 @@
+<div id='clearance' class='sign-up'>
+  <h2>Sign up</h2>
+
+<%= simple_form_for @user do |f| %>
+  
+  <div class='text-field'>
+  <%= f.input :email %>
+</div>
+
+<div class='password-field'>
+ <%= f.input :password %>
+</div>
+
+
+
+
+<div class='submit-field'>
+  <%= f.button :submit %>
+</div>
+ <div class='other-links'>
+      <%= link_to t('.sign_in'), sign_in_path %>
+    </div>
+
+  <% end %>
+</div>
+
+
+
+
