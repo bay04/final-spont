@@ -73,6 +73,6 @@ private
 	end
 
 	def project_params
-		params.require(:project).permit(:name, :description, :budget, :user, :category_of_work)
+		params.require(:project).permit(:name, :description, :budget, :user, :category_of_work, :approval)
 	end
 end
